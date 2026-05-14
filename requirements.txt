@@ -4,3 +4,5 @@ numpy
 scikit-learn
 pillow
 joblib
+plotly
+fpdf2
