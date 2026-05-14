@@ -25,7 +25,7 @@ if 'history' not in st.session_state:
     st.session_state.history = []
 
 @st.cache_data(ttl=86400)
-def get_breed_info(breed_name, is_cat=False, version=1):
+def get_breed_info(breed_name, is_cat=False, version=2):
     import os
     try:
         pet_type = "cat" if is_cat else "dog"
@@ -39,7 +39,7 @@ def get_breed_info(breed_name, is_cat=False, version=1):
         if not api_key:
             return {"description": "API Key is missing. Please configure secrets."}
             
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key={api_key}"
         
         system_prompt = (
             "You are a veterinary and pet expert AI. "
@@ -488,7 +488,7 @@ if uploaded_file is not None:
                 """, unsafe_allow_html=True)
 
                 # BREED TRAITS
-                info = get_breed_info(breed, is_cat, version=1)
+                info = get_breed_info(breed, is_cat, version=2)
                 st.markdown(f"""
                     <div style="margin-top: 30px; padding: 30px; background: #ffffff; border: 1px solid #bcb8b1; border-radius: 12px; box-shadow: 0 2px 8px rgba(70,63,58,0.04); animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1);">
                         <h4 style="color: #463f3a; margin-top: 0; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 700;">
