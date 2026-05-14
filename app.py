@@ -369,27 +369,27 @@ uploaded_file = st.file_uploader(
 if uploaded_file is None:
     st.markdown("""
         <div style="margin-top: 10px; margin-bottom: 30px; animation: fadeUp 0.8s ease-out;">
-            <h3 style="color: #463f3a; font-size: 20px; margin-bottom: 15px; font-weight: 700;">How it works</h3>
+            <div style="color: #463f3a; font-size: 20px; margin-bottom: 15px; font-weight: 700;">How it works</div>
             <div style="display: flex; gap: 20px; flex-wrap: wrap;">
                 <div style="flex: 1; min-width: 200px; padding: 24px; background: #ffffff; border: 1px solid #bcb8b1; border-radius: 12px; box-shadow: 0 2px 8px rgba(70,63,58,0.04);">
                     <div style="width: 40px; height: 40px; border-radius: 8px; background: #e0afa0; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
                         <span style="font-size: 20px;">📸</span>
                     </div>
-                    <h4 style="color: #463f3a; margin: 0 0 10px 0; font-size: 18px;">1. Upload Photo</h4>
+                    <div style="color: #463f3a; margin: 0 0 10px 0; font-size: 18px; font-weight: 700;">1. Upload Photo</div>
                     <p style="color: #8a817c; font-size: 14px; margin: 0; line-height: 1.5;">Upload a clear picture of a cat or dog. We support JPG and PNG formats.</p>
                 </div>
                 <div style="flex: 1; min-width: 200px; padding: 24px; background: #ffffff; border: 1px solid #bcb8b1; border-radius: 12px; box-shadow: 0 2px 8px rgba(70,63,58,0.04);">
                     <div style="width: 40px; height: 40px; border-radius: 8px; background: #bcb8b1; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
                         <span style="font-size: 20px;">🧠</span>
                     </div>
-                    <h4 style="color: #463f3a; margin: 0 0 10px 0; font-size: 18px;">2. AI Analysis</h4>
+                    <div style="color: #463f3a; margin: 0 0 10px 0; font-size: 18px; font-weight: 700;">2. AI Analysis</div>
                     <p style="color: #8a817c; font-size: 14px; margin: 0; line-height: 1.5;">Our custom CNN ensemble models extract visual features instantly.</p>
                 </div>
                 <div style="flex: 1; min-width: 200px; padding: 24px; background: #ffffff; border: 1px solid #bcb8b1; border-radius: 12px; box-shadow: 0 2px 8px rgba(70,63,58,0.04);">
                     <div style="width: 40px; height: 40px; border-radius: 8px; background: #8a817c; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
                         <span style="font-size: 20px;">✨</span>
                     </div>
-                    <h4 style="color: #463f3a; margin: 0 0 10px 0; font-size: 18px;">3. Get Results</h4>
+                    <div style="color: #463f3a; margin: 0 0 10px 0; font-size: 18px; font-weight: 700;">3. Get Results</div>
                     <p style="color: #8a817c; font-size: 14px; margin: 0; line-height: 1.5;">Discover the exact breed, confidence scores, and fascinating traits.</p>
                 </div>
             </div>
