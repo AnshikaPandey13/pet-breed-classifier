@@ -96,7 +96,9 @@ def generate_report(breed, info):
         pdf.set_font("Arial", '', 12)
         safe_desc = info['description'].encode('latin-1', 'replace').decode('latin-1')
         pdf.multi_cell(0, 10, txt=f"Description: {safe_desc}")
-        return pdf.output(dest='S').encode('latin-1'), "application/pdf", f"{breed}_report.pdf"
+        out = pdf.output(dest='S')
+        pdf_bytes = out.encode('latin-1') if hasattr(out, 'encode') else bytes(out)
+        return pdf_bytes, "application/pdf", f"{breed}_report.pdf"
     except ImportError:
         report = f"PET BREED REPORT\n\nPredicted: {breed}\n\nDescription:\n{info['description']}\n"
         return report, "text/plain", f"{breed}_report.txt"
