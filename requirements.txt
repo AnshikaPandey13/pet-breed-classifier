@@ -6,3 +6,5 @@ pillow
 joblib
 plotly
 fpdf2
+requests
+python-dotenv
