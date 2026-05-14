@@ -94,13 +94,19 @@ def generate_report(breed, info):
         pdf.set_font("Arial", 'B', 12)
         pdf.cell(200, 10, txt=f"Predicted Breed: {breed}", ln=True)
         pdf.set_font("Arial", '', 12)
-        safe_desc = info['description'].encode('latin-1', 'replace').decode('latin-1')
-        pdf.multi_cell(0, 10, txt=f"Description: {safe_desc}")
+        import re
+        clean_text = info['description'].replace('<br>', '\n').replace('<br/>', '\n')
+        clean_text = re.sub(r'<[^>]+>', '', clean_text)
+        safe_desc = clean_text.encode('latin-1', 'replace').decode('latin-1')
+        pdf.multi_cell(0, 10, txt=f"Description:\n{safe_desc}")
         out = pdf.output(dest='S')
         pdf_bytes = out.encode('latin-1') if hasattr(out, 'encode') else bytes(out)
         return pdf_bytes, "application/pdf", f"{breed}_report.pdf"
     except ImportError:
-        report = f"PET BREED REPORT\n\nPredicted: {breed}\n\nDescription:\n{info['description']}\n"
+        import re
+        clean_text = info['description'].replace('<br>', '\n').replace('<br/>', '\n')
+        clean_text = re.sub(r'<[^>]+>', '', clean_text)
+        report = f"PET BREED REPORT\n\nPredicted: {breed}\n\nDescription:\n{clean_text}\n"
         return report, "text/plain", f"{breed}_report.txt"
 
 # ---------------------------------------------------
